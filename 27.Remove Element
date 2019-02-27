@@ -1,0 +1,35 @@
+'''
+错误代码
+在循环中删除掉列表元素，会导致ouf of index
+不能删除
+'''
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        for i in range(0,len(nums)):
+            if nums[i]==val:
+                del nums[i]
+        return len(nums)
+      
+'''
+正确代码
+明确题意！！
+不分配新的空间给另一个数组，直接在本数组中操作就可以
+'''
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        l=0
+        for i in range(0,len(nums)):
+            if nums[i] != val:
+                nums[l]=nums[i]
+                l=l+1
+        return l
+'''
+正确代码
+while循环
+python的内置函数
+'''
+class Solution:
+    def removeElement(self, nums: List[int], val: int) -> int:
+        while val in nums:
+            nums.remove(val)
+        return len(nums)  
